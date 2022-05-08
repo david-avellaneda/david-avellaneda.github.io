@@ -1,0 +1,261 @@
+:root {
+    --font-size-text-320: 1.5rem;
+    --font-size-text-420: 1.6rem;
+    --font-size-text-500: 1.9rem;
+    --font-size-text-900: 2.1rem;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Baloo Thambi 2", cursive;
+}
+*:before, *:after {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    --light-mode-background: #FAFAFA;
+    --light-mode-elements: #ffffff;
+    --light-mode-text: #111517;
+    --light-mode-buttons: #CE5631;
+    --light-mode-icons: #000;
+    background-color: var(--light-mode-background);
+    color: var(--light-mode-text);
+    background-image: url("/assets/index/texture.png");
+}
+body.dark-theme {
+    --light-mode-background: #202C37;
+    --light-mode-elements: #2b3945;
+    --light-mode-text: #ffffff;
+    --light-mode-icons: #fff;
+}
+header {
+    width: 100%;
+    height: 7rem;
+    background-color: var(--light-mode-elements);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.navbar {
+    width: 80%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.navbar .logo {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.navbar .logo img {
+    width: 80%;
+    max-width: 20rem;
+}
+.icon-menu {
+    width: 5rem;
+    height: 50%;
+    background-color: transparent;
+    font-size: 1.2rem;
+    color: var(--light-mode-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.icon-menu span {
+    position: absolute;
+    border-radius: 0.2rem;
+    width: 3.5rem;
+    height: 0.4rem;
+    background-color: var(--light-mode-icons);
+    transition: all 0.4s ease-in-out;
+}
+.icon-menu span:nth-child(1) {
+    transform: translateY(-10px);
+}
+.icon-menu.active-menu span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+    transition-delay: 0.1s;
+}
+.icon-menu span:nth-child(2) {
+    transform: translateY(10px);
+}
+.icon-menu.active-menu span:nth-child(2) {
+    transform: translateY(0) rotate(315deg);
+    transition-delay: 0.2s;
+}
+.icon-menu.active-menu span:nth-child(3) {
+    transform: translateX(60px);
+}
+.container-menu {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--light-mode-background);
+    position: fixed;
+    top: 7rem;
+    left: 0;
+    margin-left: -100%;
+    border-top: 2px solid var(--light-mode-text);
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+}
+.menu-content {
+    width: 90%;
+    height: auto;
+    list-style: none;
+    margin: 0 auto;
+}
+.container-menu.show-menu {
+    margin-left: 0;
+}
+.menu-link {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 2rem;
+    color: var(--light-mode-text);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+.menu-link:hover {
+    background: var(--light-mode-buttons);
+    color: #fff;
+}
+.theme-btn {
+    width: 8rem;
+    height: 3rem;
+    background: var(--light-mode-buttons);
+    border-radius: 100rem;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    outline: none;
+    margin: 2.5rem;
+}
+.circle { 
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    background-color:#F1F1F1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 10rem;
+    transition: all 0.2s ease-in-out;
+    transform: translateX(0px);
+    box-shadow: 0 0 .4rem .4rem rgba(0,0,0, .3);
+}
+.theme-btn.active-theme-btn .circle {
+    left: 0;
+    transform: translateX(50px)
+}
+.theme-btn span {
+    width: 3rem;
+    height: 3rem;
+    padding: .5rem;
+    line-height: 3rem;
+    display: block;
+    background: none;
+    fill: #ffff;
+}
+@media (min-width: 380px) {
+    .navbar .logo img {
+        width: 100%;
+        max-width: 16rem;
+    }
+    .menu-link {
+        font-size: 2rem;
+        padding: 2.5rem;
+    }
+}
+@media (min-width: 500px) {
+    header {
+        height: 8rem;
+    }
+    .menu-content {
+        top: 8rem;
+    }
+    .menu-link {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+@media (min-width: 1000px) {    
+    .icon-menu {
+        display: none;
+    }
+    .container-menu {
+        width: auto;
+        height: 8rem;
+        background-color: transparent;
+        position: initial;
+        margin-left: 0;
+        border: none;
+        overflow-y: initial;
+    }
+    .menu-content {
+        width: 100%;
+        height: 8rem;
+        margin-left: 0;
+        position: initial;
+        display: flex;
+        justify-content: flex-end;
+        background-color: transparent;
+    }
+    .menu-link {
+        color: var(--light-mode-text);
+        font-size: 1.6rem;
+        padding: 0 1rem;
+        margin: 0 0.5rem;
+    }
+    .menu-link:hover {
+        background: transparent;
+        color: var(--light-mode-buttons);
+    }
+}
+@media (min-width: 1100px) {
+    .menu-link {
+        color: var(--light-mode-text);
+        font-size: 1.7rem;
+        margin: 0 1rem;
+    }
+}
+@media (min-width: 1200px) {
+    .menu-link {
+        color: var(--light-mode-text);
+        font-size: 1.8rem;
+    }
+}
+@media (min-width: 1300px) {
+    .navbar .logo img {
+        width: 100%;
+        max-width: 20rem;
+    }
+}
+@media (min-width: 1400px) {
+    .menu-link {
+        color: var(--light-mode-text);
+        font-size: 1.9rem;
+        padding: 0 2rem;
+    }
+}
